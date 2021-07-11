@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+<br><br>
+<h3>Calculator</h3>
+
+<input type="name" id="dis"/>
+<br>
+<br>
+
+<button onclick="buttonClicked(this.id,0)">0</button>
+<button onclick="buttonClicked(this.id,1)">1</button>
+<button onclick="buttonClicked(this.id,2)">2</button>
+<button onclick="buttonClicked(this.id,3)">3</button>
+<button onclick="buttonClicked(this.id,4)">4</button>
+<button onclick="buttonClicked(this.id,5)">5</button>
+<button onclick="buttonClicked(this.id,6)">6</button>
+<button onclick="buttonClicked(this.id,7)">7</button>
+<button onclick="buttonClicked(this.id,8)">8</button>
+<button onclick="buttonClicked(this.id,9)">9</button>
+
+<br>
+<br>
+<br>
+
+<button onclick="the('+')">+</button>
+
+<button onclick="the('-')">-</button>
+
+<button onclick="the('*')">*</button>
+
+<button onclick="the('/')">/</button>
+
+<button onclick="show(z)">Result</button>
+
+<button onclick="clr()">Clear</button>
+
+
+
+
+
+<script>
+
+
+var num;
+var arr = [];
+function buttonClicked(clicked_button,number){
+
+    document.getElementById("dis").value+=number;
+arr.push(number);
+console.log(arr);
+
+}
+
+let z,f;
+
+function the(s){
+           
+           document.getElementById("dis").value+=s;
+           f=s;
+
+       }
+
+function show(){
+
+    resultValue(f);
+    
+    document.getElementById("dis").value="";
+    document.getElementById("dis").value+=z;
+    
+}
+
+function clr(){
+
+    document.getElementById("dis").value="";
+    arr.length=0;
+}
+
+function resultValue(s){
+
+   if(s === '+')
+    z=add(arr);
+   else if(s === '-')
+    z=difference(arr);
+   else if(s === '*')
+    z=multiply(arr);
+   else
+    z=divide(arr);
+}
+
+function add(arr){
+
+    let s=0;
+    for(let i=0;i<arr.length;i++)
+    {s+=arr[i];
+    }
+    
+    return s;
+
+}
+
+function difference(arr){
+
+let s;
+s = arr[0];
+for(let i=1;i<arr.length;i++)
+{s-=arr[i];
+}
+
+return s;
+
+}
+
+function multiply(arr){
+
+let s = arr[0];
+for(let i=1;i<arr.length;i++)
+{s*=arr[i];
+}
+
+return s;
+
+}
+
+function divide(arr){
+
+let s=arr[0];
+for(let i=1;i<arr.length;i++)
+{s/=arr[i];
+}
+
+return s;
+
+}
+</script>
+
+</body>
+</html>
